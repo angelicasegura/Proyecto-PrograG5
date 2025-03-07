@@ -8,11 +8,11 @@
         <version>3.4.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.tienda</groupId>
+    <groupId>com.avance2</groupId>
     <artifactId>avance2</artifactId>
     <version>1</version>
     <name>avance2</name>
-    <description>proyecto tienda de martes noche</description>
+    <description>proyecto programacion web</description>
     <properties>
         <java.version>23</java.version>
         <maven.compiler.release>17</maven.compiler.release>
