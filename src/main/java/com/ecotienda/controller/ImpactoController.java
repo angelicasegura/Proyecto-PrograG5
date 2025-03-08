@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.ecotienda.controller;
 
 import com.ecotienda.domain.Categoria;
@@ -14,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-@RequestMapping("/categorias")
-public class CategoriaController {
 
-    @GetMapping("/categoria")
-    public String mostarCategoria() {
-      
-        return "categorias/categoria";
+@RequestMapping("/impacto")
+public class ImpactoController {
+
+    @GetMapping("/listado")
+    public String mostrarImpacto() {
+        return "/impacto/listado"; 
     }
 }
