@@ -24,7 +24,7 @@ public class masVendidos implements Serializable {
     @Column(name = "id_masVendidos")
     private Long idMasVendidos;
     private String rutaImagen;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_producto")
     private Producto producto;
 

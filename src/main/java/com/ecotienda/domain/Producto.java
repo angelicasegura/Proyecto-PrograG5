@@ -36,7 +36,7 @@ public class Producto implements Serializable {
     @JoinColumn(name = "id_categoria")
     private Categoria categoria;
     
-    @OneToOne
+    @OneToMany
     @JoinColumn(name="id_producto")
     private List<masVendidos> masVendidos;
 
