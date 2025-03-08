@@ -82,6 +82,17 @@ nav{
     
     
 }
-
+.lista-horizontal{
+    list-style-type: none;
+}
+.lista-horizontal-items{
+    display: inline-block; 
+    margin-right: 10px;
+   
+}
+.botones{
+    border: 1.5px solid #deeec6; 
+    border-radius: 10px;
+}
 
 

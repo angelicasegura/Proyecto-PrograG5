@@ -1,5 +1,5 @@
 
-package com.tienda;
+package com.ecotienda;
 
 import java.util.Locale;
 import org.springframework.context.annotation.Bean;

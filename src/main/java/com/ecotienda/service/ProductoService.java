@@ -1,8 +1,8 @@
 
-package com.tienda.service;
+package com.ecotienda.service;
 
-import com.tienda.domain.Producto;
-import com.tienda.repository.ProductoRepository;
+import com.ecotienda.domain.Producto;
+import com.ecotienda.repository.ProductoRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class ProductoService {
     @Transactional(readOnly=true)
     
     public Producto getProducto(Producto producto){
-        producto= productoRepository.findById(producto.getIdProducto()).orElse(null);
+        producto= productoRepository.findById(producto.getCategoria()).orElse(null);
         return producto;
     }
     

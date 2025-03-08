@@ -1,4 +1,4 @@
-package com.tienda.service;
+package com.ecotienda.service;
 
 import com.google.auth.Credentials;
 import com.google.auth.ServiceAccountSigner;

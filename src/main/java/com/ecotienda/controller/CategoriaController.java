@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.tienda.controller;
+package com.ecotienda.controller;
 
-import com.tienda.domain.Categoria;
-import com.tienda.service.CategoriaService;
-import com.tienda.service.FirebaseStorageService;
+import com.ecotienda.domain.Categoria;
+import com.ecotienda.service.CategoriaService;
+import com.ecotienda.service.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

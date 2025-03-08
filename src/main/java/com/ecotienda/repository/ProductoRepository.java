@@ -1,12 +1,12 @@
 
-package com.tienda.repository;
+package com.ecotienda.repository;
 
-import com.tienda.domain.Categoria;
+import com.ecotienda.domain.Producto;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 
-public interface CategoriaRepository extends JpaRepository<Categoria, Long>{
+public interface ProductoRepository extends JpaRepository<Producto, Long>{
     
 }

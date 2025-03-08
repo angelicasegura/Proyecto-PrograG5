@@ -1,4 +1,4 @@
-package com.tienda;
+package com.ecotienda;
  
 import org.springframework.boot.SpringApplication;
 

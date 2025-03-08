@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.tienda.controller;
+package com.ecotienda.controller;
 
-import com.tienda.domain.Producto;
-import com.tienda.service.CategoriaService;
-import com.tienda.service.ProductoService;
-import com.tienda.service.FirebaseStorageService;
+import com.ecotienda.domain.Producto;
+import com.ecotienda.service.CategoriaService;
+import com.ecotienda.service.ProductoService;
+import com.ecotienda.service.FirebaseStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,8 +56,8 @@ public class ProductoController {
             @RequestParam("imagenFile") MultipartFile imagenFile){
         if(!imagenFile.isEmpty()){
             productoService.save(producto);
-            String ruta= firebaseStorageService.cargaImagen(imagenFile,"producto",producto.getIdProducto());
-            producto.setRutaImagen(ruta);
+            String ruta= firebaseStorageService.cargaImagen(imagenFile,"producto",producto.getId_producto());
+            producto.setRuta_imagen(ruta);
         }
         
         productoService.save(producto);

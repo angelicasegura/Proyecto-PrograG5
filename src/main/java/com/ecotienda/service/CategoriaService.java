@@ -1,8 +1,8 @@
 
-package com.tienda.service;
+package com.ecotienda.service;
 
-import com.tienda.domain.Categoria;
-import com.tienda.repository.CategoriaRepository;
+import com.ecotienda.domain.Categoria;
+import com.ecotienda.repository.CategoriaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
