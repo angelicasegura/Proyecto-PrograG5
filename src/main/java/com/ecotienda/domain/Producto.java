@@ -6,6 +6,7 @@ package com.ecotienda.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import lombok.Data;
 
 /**
@@ -29,24 +30,15 @@ public class Producto implements Serializable {
     private double precio;
     private int existencias;
     private String ruta_imagen;
-    private boolean activo;
-    private long Categoria;
-
-    public long getCategoria() {
-        return Categoria;
-    }
-
-    public void setCategoria(long Categoria) {
-        this.Categoria = Categoria;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+    
+    @OneToOne
+    @JoinColumn(name="id_producto")
+    private List<masVendidos> masVendidos;
 
     public Long getId_producto() {
         return id_producto;
@@ -64,25 +56,13 @@ public class Producto implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getRuta_imagen() {
-        return ruta_imagen;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setRuta_imagen(String ruta_imagen) {
-        this.ruta_imagen = ruta_imagen;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
-
-    
-
-    public boolean isActivo() {
-        return activo;
-    }
-
-    public void setActivo(boolean activo) {
-        this.activo = activo;
-    }
-
-    
 
     public double getPrecio() {
         return precio;
@@ -99,6 +79,28 @@ public class Producto implements Serializable {
     public void setExistencias(int existencias) {
         this.existencias = existencias;
     }
+
+    public String getRuta_imagen() {
+        return ruta_imagen;
+    }
+
+    public void setRuta_imagen(String ruta_imagen) {
+        this.ruta_imagen = ruta_imagen;
+    }
+
+   
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    
+
+    
 
 
 }

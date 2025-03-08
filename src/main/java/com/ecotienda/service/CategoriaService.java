@@ -17,16 +17,13 @@ public class CategoriaService {
     @Transactional(readOnly=true)
     public List<Categoria> getCategorias(boolean activos){
         var lista= categoriaRepository.findAll();
-        if(activos){
-            //solo se quieren las categorias activas
-            lista.removeIf(e -> !e.isActivo());
-        }
+        
         return lista;
     }
     @Transactional(readOnly=true)
     
     public Categoria getCategoria(Categoria categoria){
-        categoria= categoriaRepository.findById(categoria.getIdCategoria()).orElse(null);
+        categoria= categoriaRepository.findById(categoria.getId_Categoria()).orElse(null);
         return categoria;
     }
     

@@ -13,7 +13,7 @@ import lombok.Data;
  *
  * @author HP
  */
-@Data
+//@Data
 @Entity
 @Table(name="categoria")
 public class Categoria implements Serializable{
@@ -22,29 +22,20 @@ public class Categoria implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id_categoria")
-    private Long idCategoria;
+    private Long id_Categoria;
     private String descripcion;
-    private String rutaImagen;
-    private boolean activo;
+    private String ruta_Imagen;
+    
     @OneToMany
     @JoinColumn(name="id_categoria")
     private List<Producto> productos;
 
-    public List<Producto> getProductos() {
-        return productos;
+    public Long getId_Categoria() {
+        return id_Categoria;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
-    }
-    
-
-    public Long getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(Long idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setId_Categoria(Long id_Categoria) {
+        this.id_Categoria = id_Categoria;
     }
 
     public String getDescripcion() {
@@ -55,21 +46,27 @@ public class Categoria implements Serializable{
         this.descripcion = descripcion;
     }
 
-    public String getRutaImagen() {
-        return rutaImagen;
+    public String getRuta_Imagen() {
+        return ruta_Imagen;
     }
 
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
+    public void setRuta_Imagen(String ruta_Imagen) {
+        this.ruta_Imagen = ruta_Imagen;
     }
 
-    public boolean isActivo() {
-        return activo;
+   
+
+    public List<Producto> getProductos() {
+        return productos;
     }
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
+
+    
+
+    
     
     
 }

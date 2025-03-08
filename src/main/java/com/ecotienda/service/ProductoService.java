@@ -17,16 +17,13 @@ public class ProductoService {
     @Transactional(readOnly=true)
     public List<Producto> getProductos(boolean activos){
         var lista= productoRepository.findAll();
-        if(activos){
-            //solo se quieren las productos activas
-            lista.removeIf(e -> !e.isActivo());
-        }
+        
         return lista;
     }
     @Transactional(readOnly=true)
     
     public Producto getProducto(Producto producto){
-        producto= productoRepository.findById(producto.getCategoria()).orElse(null);
+        producto= productoRepository.findById(producto.getCategoria().getId_Categoria()).orElse(null);
         return producto;
     }
     
