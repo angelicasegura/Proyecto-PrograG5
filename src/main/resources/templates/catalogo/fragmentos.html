@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Ecotienda</title>
+        <meta charset="UTF-8"/>        
+
+    </head>
+    <body>
+        <!-- 1 Sección para mostrar en tabs las categorias-->
+        <section th:fragment="tabs" >
+            <ul class="nav nav-tabs py-2">
+                <li class="nav-item">
+                    <a class="nav-link " href="/catalogo/listado">Catalógo de productos Ecológicos</a>
+                </li>
+                <li th:each="c : ${categorias}" class="nav-item">
+                    <a class="nav-link" 
+                       th:href="@{/catalogo/listado/}+${c.id_Categoria}">[[${c.descripcion}]]</a>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- 2 Sección para mostrar en tarjetas los productos-->
+        <section th:fragment="tarjetas" >
+            <div class="row row-cols-4 m-2">
+                <div class="card" th:each="p : ${productos}">
+                    <figure>
+                        <img th:src="${p.ruta_imagen}"
+                             class="card-img-top"
+                             height="200"
+                             alt="..."/>
+                        <figcaption class="d-flex justify-content-between">
+                          
+                            <span>¢[[${p.precio}]]</span>
+                            <span>([[${p.existencias}]])</span>
+                            <span><i class="fas fa-cart-arrow-down"></i></span>
+                        </figcaption>
+                    </figure>
+                    <div class="card-header">
+                        <h4>[[${p.descripcion}]]</h4>
+                    </div>
+                    <div class="card-body">
+                        <p> [[${p.nombre}]]</p>
+                    </div>
+                       
+                    xxx
+                </div>
+            </div>
+
+        </section>
+
+    </body>
+</html>

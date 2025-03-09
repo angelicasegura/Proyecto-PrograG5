@@ -21,6 +21,7 @@
 
                 </head>
                 <body>
+                    
                     <header th:fragment="header" class="header">
                         <nav class="navbar navbar-expand-sm p-1" style="background-color: #cee5ce">
                             <div class="container-fluid">
@@ -43,6 +44,10 @@
                                     <li class="nav-item px-2 ">
                                         <a class="nav-link nav-menu-principal" style="color:white; background: #c0dcc0; border-radius: 15px; padding-top: 3px ;font-family: 'SulphurPoint', sans-serif;" th:href="@{/categorias/categoria}">
                                             Categorias</a>
+                                    </li>
+                                    <li class="nav-item px-2 ">
+                                        <a class="nav-link nav-menu-principal" style="color:white; background: #c0dcc0; border-radius: 15px; padding-top: 3px ;font-family: 'SulphurPoint', sans-serif;" th:href="@{/catalogo/listado}">
+                                            catalogo</a>
                                     </li>
                                     <li>
                                         <a class="nav-link nav-menu-principal"><img th:src="@{/fav/carrito-de-compras.png}" alt="..." style="height: 37px; width: 37px"/></a>

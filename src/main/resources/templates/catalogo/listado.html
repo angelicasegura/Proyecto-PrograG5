@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Ecotienda</title>
+        <meta charset="UTF-8"/>        
+
+    </head>
+    <body>
+        <section th:replace="~{layout/plantilla :: main}"/>
+        <section th:replace="~{layout/plantilla :: body_index}"/>
+
+        <section th:fragment="main">
+            <section th:fragment="Catalógo de productos ecológicos">
+                <section th:replace="~{catalogo/fragmentos :: tabs}"/>
+                <section th:replace="~{catalogo/fragmentos :: tarjetas}"/>
+            </section>
+        </section>
+    </body>
+</html>
