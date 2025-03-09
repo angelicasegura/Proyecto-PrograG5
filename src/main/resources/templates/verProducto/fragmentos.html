@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout/plantilla :: head}">
+        <title>Ecotienda</title>
+        <meta charset="UTF-8"/>        
+        <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap" rel="stylesheet">
+            <link rel="icon" type="image/png" sizes="16x16" href="/fav/energia-ecologica.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="/fav/energia-ecologica.png"/>
+            <link rel="icon" type="image/png" sizes="68x68" href="/fav/energia-ecologica.png"/>
+            <script th:src="@{/js/rutinas.js}"></script>
+            <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+            <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+                <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+                <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+                <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+                </head>
+                <body>
+
+                    <section th:fragment="producto" >
+                        <div style="padding-left: 130px; padding-right: 130px; padding-top: 25px">
+                            <div style="border-top: 2px solid #c9cfae"></div>
+                        </div>
+                        <div th:each="p : ${productos}">
+                            <div class="row" style="padding-top: 15px; padding-left: 200px">
+                                <div class="col-md-5" style='flex-direction: column'>
+                                    <div style="display: flex; ">
+                                        <img th:src="@{${p.ruta_imagen}}" alt="no data" height="200px"/>
+                                        <div style="flex-direction: column; color: #8c9c76; font-family: 'SulphurPoint', sans-serif; padding-left: 10px">
+                                            <h3>[[${p.nombre}]]</h3>
+                                            <a>Precio: ₡ [[${p.precio}]]</a>
+                                        </div>
+                                    </div>
+                                    <div style="color: #8c9c76; font-family: 'SulphurPoint', sans-serif">
+                                        <h5>Descripción:</h5>
+                                        <p>[[${p.descripcion}]]</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5" style='flex-direction: column; padding-left: 100px; padding-right: 60px'>
+                                    <div style="border: 2px solid #bdbdbd; height: 220px; border-radius: 5px; flex-direction: column; padd">
+                                        <div class="input-group" style="padding-left: 70px; padding-right: 70px; padding-top: 40px">
+                                            <button class="btn btn-outline-secondary" type="button" id="decrement">−</button>
+                                            <input type="text" class="form-control text-center" id="quantity" value="1" min="1">
+                                                <button class="btn btn-outline-secondary" type="button" id="increment">+</button>
+                                        </div>
+                                        <div  style="text-align: center; padding-top: 50px">
+                                            <a class="btn btn-success" style="color: white; font-family: 'SulphurPoint', sans-serif">Agregar al carrito</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
+                </body>
+                </html>

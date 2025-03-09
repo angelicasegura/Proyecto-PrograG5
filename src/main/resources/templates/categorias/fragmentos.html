@@ -64,7 +64,8 @@
 
                                                 <img th:src="@{${p.ruta_imagen}}" alt="no data" height="75px"/>
                                                 <a>[[${p.nombre}]]</a>
-                                                <a th:href="@{/productos/info}"
+                                                
+                                                <a th:href="@{/verProducto/producto/}+${p.id_producto}"
                                                    class="btn btn-success">Agregar</a>
                                             </li>
                                         </ul>

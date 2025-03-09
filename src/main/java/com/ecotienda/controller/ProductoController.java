@@ -17,22 +17,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-//@Controller
-//@RequestMapping("/categorias")
-//public class ProductoController {
-//
-//    @Autowired
-//    private ProductoService productoService;
-//    @Autowired
-//    private CategoriaService categoriaService;
-//    @GetMapping("/categoria")
-//    public String listado(Model model) {
-//        var lista = productoService.getProductos(false);
-//        model.addAttribute("productos", lista);
-//        var categorias=categoriaService.getCategorias(true);
-//        model.addAttribute("categorias",categorias);
-//        
-//        return "/categorias/categoria";
-//    }
-// 
-//}
+@Controller
+@RequestMapping("/verProducto")
+public class ProductoController {
+
+    @Autowired
+    private ProductoService productoService;
+    @Autowired
+    private CategoriaService categoriaService;
+    @GetMapping("/producto/{id_producto}")
+    public String listado(Model model, Producto producto) {
+        
+        
+         var lista =productoService.getProducto(producto);
+        
+        model.addAttribute("productos", lista);
+        
+        return "/verProducto/producto";
+    }
+ 
+}
