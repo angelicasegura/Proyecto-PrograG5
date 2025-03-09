@@ -5,6 +5,7 @@
 package com.ecotienda.controller;
 
 import com.ecotienda.domain.Producto;
+import com.ecotienda.domain.masVendidos;
 
 import com.ecotienda.service.ProductoService;
 import com.ecotienda.service.masVendidosService;
@@ -20,29 +21,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("index")
 public class masVendidosController {
 
-    @Autowired
-    private ProductoService productoService;
+    
     @Autowired
     private masVendidosService masVendidosService;
 
-    @GetMapping("index")
+    @GetMapping
     public String listado(Model model) {
-        var lista = masVendidosService.getMasVendidos(false);
+        var lista = masVendidosService.getMasVendidos();
         model.addAttribute("masVendidos", lista);
-
+        
 
         return "index";
     }
     
-//    @GetMapping("/listado/{idproducto}")
-//    public String listado(Model model,Producto producto) {
-//        var lista = productoService.getProductos(false);
-//        model.addAttribute("producto", lista);
-//        producto=productoService.getproducto(producto);
-//        
-//        model.addAttribute("masVendidos", producto.getProductos());
-//
-//        return "/masVendidos/listado";
-//    }
+    
 
 }

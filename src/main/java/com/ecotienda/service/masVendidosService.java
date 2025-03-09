@@ -15,17 +15,14 @@ public class masVendidosService {
     private masVendidosRepository masVendidosRepository;
     
     @Transactional(readOnly=true)
-    public List<masVendidos> getMasVendidos(boolean activos){
+    public List<masVendidos> getMasVendidos(){
         var lista= masVendidosRepository.findAll();
         
         return lista;
     }
-    @Transactional(readOnly=true)
     
-    public masVendidos getmasVendidos(masVendidos masVendidos){
-        masVendidos= masVendidosRepository.findById(masVendidos.getProducto().getId_producto()).orElse(null);
-        return masVendidos;
-    }
+    
+    
     
     @Transactional
     public void delete(masVendidos masVendidos){

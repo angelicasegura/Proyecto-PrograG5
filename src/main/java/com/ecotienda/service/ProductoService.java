@@ -23,7 +23,7 @@ public class ProductoService {
     @Transactional(readOnly=true)
     
     public Producto getProducto(Producto producto){
-        producto= productoRepository.findById(producto.getCategoria().getId_Categoria()).orElse(null);
+        producto= productoRepository.findById(producto.getId_producto()).orElse(null);
         return producto;
     }
     

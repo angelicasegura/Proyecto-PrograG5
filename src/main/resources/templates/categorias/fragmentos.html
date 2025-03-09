@@ -21,133 +21,60 @@
 
                 </head>
                 <body>
-                    <header th:fragment="header" class="header">
-                        <nav class="navbar navbar-expand-sm p-1" style="background-color: #cee5ce">
-                            <div class="container-fluid">
+                    <section th:fragment="body-listado">
+                        <div class="container" style="padding-top: 20px">
+                            <div class="row">
+                                <div class="col-md-1" style="border:1.5px solid #ccdeb5; height: 200px; width: 250px; padding-top: 15px; border-radius: 5px">
+                                    <div >
+                                        <div style="color: #8c9c76; font-family: 'SulphurPoint', sans-serif" >
+                                            <h3>CATEGORIAS</h3>
+                                            <a th:href="@{/categorias/categoria}" >
+                                            <div class="form-check"  >
+                                                
+                                                
+                                                    <a th:href="@{/categorias/categoria}" style="text-decoration: none; color: #8c9c76; font-family: 'SulphurPoint', sans-serif;">
+                                                        Todos los productos
+                                                    </a>
+                                            </div>
+                                            </a>
+                                            <div th:each="C : ${categorias}">
+                                                
+                                            <div class="form-check"  >
+                                                
+                                                <a th:href="@{/categorias/categoria/}+${C.id_Categoria}" style="text-decoration: none; color: #8c9c76; font-family: 'SulphurPoint', sans-serif;">
+                                                        [[${C.descripcion}]]
+                                                </a>
+                                            </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                <a class="navbar-brand nav-menu-principal" style="color:white" th:href="@{/}">ECOTIENDA <img th:src="@{/fav/energia-ecologica.png}" alt="Logo" style="height: 37px; width: 37px"/></a>
-                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                                </button>
-                            </div>
-
-
-                            <div class="collapse navbar-collapse justify-content-between " id="navbarCollapse">
-                                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                                    <li class="nav-item px-2 ">
-                                        <a class="nav-link nav-menu-principal" style="color:white; background: #c0dcc0; border-radius: 15px; padding-top: 3px; font-family: 'SulphurPoint', sans-serif;" href="#">Blog</a>
-                                    </li>
-                                    <li class="nav-item px-2 ">
-                                        <a class="nav-link nav-menu-principal" style="color:white; background: #c0dcc0; border-radius: 15px ;padding-top: 3px; font-family: 'SulphurPoint', sans-serif;" th:href="@{/impacto/listado}">Impacto</a>
-                                    </li>
-                                    <li class="nav-item px-2 ">
-                                        <a class="nav-link nav-menu-principal" style="color:white; background: #c0dcc0; border-radius: 15px; padding-top: 3px ;font-family: 'SulphurPoint', sans-serif;" th:href="@{/categorias/categoria}">
-                                            Categorias</a>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link nav-menu-principal"><img th:src="@{/fav/carrito-de-compras.png}" alt="..." style="height: 37px; width: 37px"/></a>
-                                    </li>
-                                </ul>
-                            </div> 
-
-                        </nav>    
-
-
-
-                    </header>
-                    <!-- inicio del carrucel de imagenes -->
-                    <section th:fragment="main">
-                        <section   class="  text-black" style="background: #c0dcbf; height: 300px">
-                            <div id="carouselExampleCaptions" class="carousel slide">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
                                 </div>
 
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="https://www.ekolojik.com.tr/images/ekolojik-kavramlar.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 300px;">
-                                            <div class="carousel-caption d-none d-md-block">
+                                <div class="col-md-5" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; width: 880px; padding-left: 30px">
 
-                                                <h5 style="font-family: 'SulphurPoint', sans-serif">Por el bienestar de todos.</h5>
-                                            </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://www.larepublica.net/storage/images/2019/07/12/20190712150625.ecologia.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 300px" >
-                                            <div class="carousel-caption d-none d-md-block">
+                                    <div th:if="${productos != null and !productos.empty}" 
+                                         style="border-left: 2px solid #c9cfae; padding-left: 10px; width: 100%;">
 
-                                                <h5 style="font-family: 'SulphurPoint', sans-serif;">El planeta no es desechable.</h5>
-                                            </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://www.infoescola.com/wp-content/uploads/2019/10/ecologia-1129110491.jpg" class="d-block w-100" alt="..." style="object-fit: cover; height: 300px;" >
-                                            <div class="carousel-caption d-none d-md-block">
+                                        <ul class="nav" style="display: flex; flex-wrap: wrap; gap: 100px; margin: 10px; ">
+                                            <li th:each="p : ${productos}" 
+                                                style="border: 1px solid #c4c0c0; padding: 5px; display: flex; align-items: center; justify-content: center; height: 200px; border-radius: 5px; width: 200px; flex-direction: column
+                                                ; color: #8c9c76; font-family: 'SulphurPoint', sans-serif">
 
-                                                <h5 style="font-family: 'SulphurPoint', sans-serif;">Un planeta sano, un futuro feliz.</h5>
-                                            </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="https://blog.comparasoftware.com/wp-content/uploads/2020/09/tipos_de_mantenimiento-1024x576.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 300px;" >
-                                            <div class="carousel-caption d-none d-md-block">
+                                                <img th:src="@{${p.ruta_imagen}}" alt="no data" height="75px"/>
+                                                <a>[[${p.nombre}]]</a>
+                                                <a th:href="@{/productos/info}"
+                                                   class="btn btn-success">Agregar</a>
+                                            </li>
+                                        </ul>
 
-                                                <h4 style="font-family: 'SulphurPoint', sans-serif; color: red">Estamos trabajando para darte el mejor servicio.</h4>
-                                            </div>
                                     </div>
+
                                 </div>
 
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
+                                </section>
 
 
-                        </section>
-                    </section>
-
-                    <!-- fin de la seccion de carrucen de imagenes -->
-                    <section th:fragment="body_index" >
-                        <br>
-                            <div style="position: fixed; width: 100%; display: flex; justify-content: center;">
-                                <div>
-                                    <br><!-- genera un espacio entre el header y los enlaces, para nada mas sirve -->
-                                </div>
-                                <div >
-                                    <ul style="list-style-type: none; ">
-                                        <li style="display: inline-block;margin-right: 50px;"><a style="border: 1.5px solid #deeec6;border-radius: 6px;">Ver Favoritos</a></li>
-                                        <li style="display: inline-block;margin-right: 50px;"><a style="border: 1.5px solid #deeec6;border-radius: 6px;">Ver Productos</a></li>
-                                        <li style="display: inline-block;margin-right: 50px;"><a style="border: 1.5px solid #deeec6;border-radius: 6px;">Impacto</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div>
-                                <br><!-- genera un espacio entre el header y los enlaces, para nada mas sirve -->
-                                    <br>
-                                        <br>
-                                            <h3 style="font-family: 'SulphurPoint', sans-serif; color: #8c9c76; padding-left: 30px">PRODUCTOS MÁS VENDIDOS</h3>    
-                                            </div>
-                                            <div style="padding-left: 30px; padding-right: 30px">
-                                                <div style="border-top:1.5px solid #d1d3cf ;"></div>
-                                            </div>
-                                            <div style="position: fixed; width: 100%; display: flex; justify-content: center;" th:if="${masVendidos != null and !masVendidos.empty}">
-                                                <div style="border: 1.5px solid #deeec6;border-radius: 6px" >
-                                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 " th:each="masVendidos : ${masVendidos}">
-
-                                                        <li > [[${masvendidos.getProducto.getNombre}]]</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-
-                                            </section>
-
-
-
-
-                                            </body>
-                                            </html>
+                                </body>
+                                </html>
