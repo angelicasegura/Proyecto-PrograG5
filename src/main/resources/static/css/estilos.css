@@ -95,4 +95,11 @@ nav{
     border-radius: 10px;
 }
 
+.image-text-container:nth-child(odd) {
+    background-color: #F5F5F5; /* Fondo gris claro */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
 
