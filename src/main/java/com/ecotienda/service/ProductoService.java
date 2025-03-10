@@ -26,6 +26,12 @@ public class ProductoService {
         producto= productoRepository.findById(producto.getId_producto()).orElse(null);
         return producto;
     }
+    @Transactional(readOnly=true)
+    public Producto getProductoporID(Long idProducto) {
+    
+    Producto producto = productoRepository.findById(idProducto).orElse(null);
+    return producto;
+}
     
     @Transactional
     public void delete(Producto producto){

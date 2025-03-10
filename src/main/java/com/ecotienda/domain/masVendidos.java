@@ -12,22 +12,22 @@ import lombok.Data;
  *
  * @author HP
  */
-@Data
+//@Data
 @Entity
-@Table(name = "masVendidos")
+@Table(name = "mas_Vendidos")
 public class masVendidos implements Serializable {
 
     private static final long serialVersionUI = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_masVendidos")
+    @Column(name = "id_mas_Vendidos")
     private Long idMasVendidos;
     private String rutaImagen;
     private Long idProducto;
-//    @ManyToOne
-//    @JoinColumn(name = "id_producto")
-//    private Producto producto;
+    
+
+    
 
     public Long getIdMasVendidos() {
         return idMasVendidos;
@@ -45,16 +45,6 @@ public class masVendidos implements Serializable {
         this.rutaImagen = rutaImagen;
     }
 
-   
-
-//    public Producto getProducto() {
-//        return producto;
-//    }
-//
-//    public void setProducto(Producto producto) {
-//        this.producto = producto;
-//    }
-
     public Long getIdProducto() {
         return idProducto;
     }
@@ -62,7 +52,4 @@ public class masVendidos implements Serializable {
     public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
-
-    
-    
 }

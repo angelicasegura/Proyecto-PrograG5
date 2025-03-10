@@ -18,19 +18,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("index")
+@RequestMapping("/")
 public class masVendidosController {
 
     
     @Autowired
     private masVendidosService masVendidosService;
-
-    @GetMapping
-    public String listado(Model model) {
+    @Autowired
+    private ProductoService productoService;
+    @GetMapping("/")
+    public String listado(Model model, masVendidos MasVendidos) {
         var lista = masVendidosService.getMasVendidos();
         model.addAttribute("masVendidos", lista);
         
-
+        
+        
         return "index";
     }
     
